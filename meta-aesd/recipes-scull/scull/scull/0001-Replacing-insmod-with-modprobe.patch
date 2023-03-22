@@ -1,0 +1,22 @@
+From b10938543beb8fb06bb5b55c3310fb5ae739aa92 Mon Sep 17 00:00:00 2001
+From: Anthony Zeater <anthony@resusright.com>
+Date: Wed, 22 Mar 2023 19:32:29 +1100
+Subject: [PATCH] Replacing insmod with modprobe
+
+---
+ scull/scull_load | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scull/scull_load b/scull/scull_load
+index 2ef6a54..c70e82f 100755
+--- a/scull/scull_load
++++ b/scull/scull_load
+@@ -13,7 +13,7 @@ fi
+ 
+ # invoke insmod with all arguments we got
+ # and use a pathname, as insmod doesn't look in . by default
+-insmod ./$module.ko $* || exit 1
++modprobe $module $* || exit 1
+ 
+ # retrieve major number
+ major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)

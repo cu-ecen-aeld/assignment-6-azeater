@@ -1,0 +1,22 @@
+From 609bdd45542f64cf690cf77ac8597ab2d078639d Mon Sep 17 00:00:00 2001
+From: Anthony Zeater <anthony@resusright.com>
+Date: Wed, 22 Mar 2023 20:15:31 +1100
+Subject: [PATCH] updated path
+
+---
+ misc-modules/module_load | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/misc-modules/module_load b/misc-modules/module_load
+index c096238..173d7a6 100755
+--- a/misc-modules/module_load
++++ b/misc-modules/module_load
+@@ -24,7 +24,7 @@ else
+ fi
+ 
+ echo "Load our module, exit on failure"
+-insmod /lib/modules/$KERNEL/kernel/drives/$module/$module.ko $* || exit 1
++insmod /lib/modules/$KERNEL/kernel/drivers/$module/$module.ko $* || exit 1
+ echo "Get the major number (allocated with allocate_chrdev_region) from /proc/devices"
+ major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
+ if [ ! -z ${major} ]; then

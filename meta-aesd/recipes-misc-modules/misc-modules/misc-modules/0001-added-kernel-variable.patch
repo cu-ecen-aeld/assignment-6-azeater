@@ -1,0 +1,22 @@
+From 57078b7aaa35641f16f990e294c4a30d78b20199 Mon Sep 17 00:00:00 2001
+From: Anthony Zeater <anthony@resusright.com>
+Date: Wed, 22 Mar 2023 20:08:29 +1100
+Subject: [PATCH] added kernel variable
+
+---
+ misc-modules/module_load | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/misc-modules/module_load b/misc-modules/module_load
+index 6d1298c..c096238 100755
+--- a/misc-modules/module_load
++++ b/misc-modules/module_load
+@@ -5,6 +5,8 @@ device=$1
+ # Support read/write for owner and group, read only for everyone using 644
+ mode="664"
+ 
++KERNEL=`uname -r`
++
+ if [ $# -ne 1 ]; then
+ 	echo "Wrong number of arguments"
+ 	echo "usage: $0 module_name"

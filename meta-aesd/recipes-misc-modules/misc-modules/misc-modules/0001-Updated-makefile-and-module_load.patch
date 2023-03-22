@@ -1,0 +1,37 @@
+From 1756b1df8030a1d5e458081d24e97952d71f449e Mon Sep 17 00:00:00 2001
+From: Anthony Zeater <anthony@resusright.com>
+Date: Wed, 22 Mar 2023 19:52:03 +1100
+Subject: [PATCH] Updated makefile and module_load
+
+---
+ Makefile                 | 5 +----
+ misc-modules/module_load | 2 +-
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..c4f2e2e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,5 @@
+ 
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
++SUBDIRS =  misc-modules scull
+ 
+ all: subdirs
+ 
+diff --git a/misc-modules/module_load b/misc-modules/module_load
+index a669c5e..6d1298c 100755
+--- a/misc-modules/module_load
++++ b/misc-modules/module_load
+@@ -22,7 +22,7 @@ else
+ fi
+ 
+ echo "Load our module, exit on failure"
+-insmod ./$module.ko $* || exit 1
++insmod /lib/modules/$KERNEL/kernel/drives/$module/$module.ko $* || exit 1
+ echo "Get the major number (allocated with allocate_chrdev_region) from /proc/devices"
+ major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
+ if [ ! -z ${major} ]; then

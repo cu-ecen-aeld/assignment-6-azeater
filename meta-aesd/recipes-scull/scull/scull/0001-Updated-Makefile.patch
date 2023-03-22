@@ -1,0 +1,23 @@
+From 0edb7a12ce4f316c3362a11798792567e9ef2cf0 Mon Sep 17 00:00:00 2001
+From: Anthony Zeater <anthony@resusright.com>
+Date: Wed, 22 Mar 2023 11:51:46 +1100
+Subject: [PATCH] Updated Makefile
+
+---
+ Makefile | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..20b21ba 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,5 @@
+ 
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
++SUBDIRS =  misc-modules scull 
+ 
+ all: subdirs
+ 
